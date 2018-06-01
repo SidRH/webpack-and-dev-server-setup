@@ -1,0 +1,53 @@
+List of commands to install & run Webpack and Webpack-Dev-Server
+
+1> Create a project folder and run 'npm init' command(Creates a "package.json" file).
+
+2> run 'npm install Webpack -D' and 'npm install webpack-dev-server -D' command to insall the dependencies.
+
+3> Create a "webpack.config.js" file and create a object to mention the entry and output file.
+
+const path = require('path');
+
+module.exports = {
+    entry: "./src/app.js",
+    mode: "production",
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, 'public')
+    }
+      
+}
+
+4> To run webpack and to create a "bundle.js" file, Add a property to script object in "package.json" file.
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack"
+  }
+
+5> Run 'npm run webpack' command to create the "bundle.js" file
+
+6> To run webpack-Dev-Server, add devserver object to "webpack.config.js file" 
+const path = require('path');
+
+module.exports = {
+    entry: "./src/app.js",
+    mode: "production",
+   devServer: {
+        contentBase: './public'
+    },
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, 'public')
+    }   
+}
+
+7> Add script object in "package.json" file to run webpack-dev-server.
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "webpack-dev-server --open",
+    "webpack": "webpack"
+  }
+
+8> To start webpack-dev-server run 'npm run dev-server' command. 
+
